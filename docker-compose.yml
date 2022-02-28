@@ -12,7 +12,7 @@ services:
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
   sangross:
-    build: ./SangrossSoapMock/
+    build: ./SangrossMockService/
   shopware:
     build: .
     environment:
@@ -21,7 +21,7 @@ services:
       APP_URL: "http://localhost"
       DATABASE_HOST: mysql
       DATABASE_URL: "mysql://shopware:shopware@mysql:3306/shopware"
-      SANGROSS_URL: "http://sangross:3000"
+      SANGROSS_URL: "http://sangross:8000/"
       INSTALL_LOCALE: de-DE
       INSTALL_CURRENCY: EUR
       INSTALL_ADMIN_USERNAME: admin
