@@ -27,7 +27,7 @@ services:
       INSTALL_ADMIN_USERNAME: admin
       INSTALL_ADMIN_PASSWORD: shopware
       TZ: Europe/Berlin
-      ACTIVE_PLUGINS: SwagLigo2022Theme
+      ACTIVE_PLUGINS: "LigoSangrossAdapter LigoShopThemeV1"
     volumes:
       - shopware-themes:/var/www/html/public/theme:rw
     ports:
