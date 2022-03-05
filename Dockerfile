@@ -1,7 +1,7 @@
-FROM shyim/shopware:6.2.3
+FROM shyim/shopware:6.4.8
 
 COPY LigoShopThemeV1/ /var/www/html/custom/plugins/LigoShopThemeV1/
-COPY LigoSangrossAdapter/ /var/www/html/custom/plugins/LigoSangrossAdapter/
+COPY SangrossAdapter/ /var/www/html/custom/plugins/SangrossAdapter/
 
 RUN chown -R 1000:1000 /var/www/html/custom/plugins/*
 

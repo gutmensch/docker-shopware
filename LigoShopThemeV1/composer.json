@@ -8,6 +8,13 @@
       "LigoShopThemeV1\\": "src/"
     }
   },
+  "authors":[
+      {
+          "name":"Robert Schumann",
+          "email": "robert@schumann.link",
+          "role": "Manufacturer"
+      }
+  ],
   "extra": {
     "shopware-plugin-class": "LigoShopThemeV1\\LigoShopThemeV1",
     "label": {

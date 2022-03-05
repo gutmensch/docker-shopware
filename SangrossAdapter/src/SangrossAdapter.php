@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
- namespace LigoSangrossAdapter;
+ namespace SangrossAdapter;
 
  use Shopware\Core\Framework\Plugin;
 
- class LigoSangrossAdapter extends Plugin
+ class SangrossAdapter extends Plugin
  {
 
  }

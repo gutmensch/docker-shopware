@@ -1,0 +1,29 @@
+{
+  "name": "ligo/sangross-adapter",
+  "description": "Sangross SOAP adapter for shopware",
+  "type": "shopware-platform-plugin",
+  "keywords": ["sangross", "soap"],
+  "license": "MIT",
+  "authors":[
+      {
+          "name":"Robert Schumann",
+          "email": "robert@schumann.link",
+          "role": "Manufacturer"
+      }
+  ],
+  "require": {
+      "shopware/core": "~6.4.8"
+  },
+  "extra": {
+    "shopware-plugin-class": "SangrossAdapter\\SangrossAdapter",
+    "label": {
+      "de-DE": "Sangross Adapter Plugin",
+      "en-GB": "Sangross Adapter Plugin"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "SangrossAdapter\\": "src/"
+    }
+  }
+}

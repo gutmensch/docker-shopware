@@ -12,7 +12,7 @@ services:
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
   sangross:
-    build: ./SangrossMockService/
+    build: ./test/SangrossMockService/
   shopware:
     build: .
     environment:
@@ -27,7 +27,7 @@ services:
       INSTALL_ADMIN_USERNAME: admin
       INSTALL_ADMIN_PASSWORD: shopware
       TZ: Europe/Berlin
-      ACTIVE_PLUGINS: "LigoSangrossAdapter LigoShopThemeV1"
+      ACTIVE_PLUGINS: "SangrossAdapter LigoShopThemeV1"
     volumes:
       - shopware-themes:/var/www/html/public/theme:rw
     ports:
