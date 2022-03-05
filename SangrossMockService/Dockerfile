@@ -1,15 +1,17 @@
-FROM python:3.7-alpine
+FROM python:3.8-alpine
 
 WORKDIR /code
 
-RUN apk add --no-cache curl gcc musl-dev libxml2-dev libxslt-dev linux-headers
-
 COPY requirements.txt requirements.txt
-
-RUN pip install -r requirements.txt
-
-EXPOSE 8000
-
 COPY code/ /code/
+
+RUN apk add --no-cache curl gcc musl-dev \
+  && pip install -r requirements.txt \
+  && apk del gcc musl-dev
+
+# mimicks actual environment
+ENV SCRIPT_NAME="/csp/kpsdat/nw.nwAPI.cls" SERVER_PORT=57773
+
+EXPOSE $SERVER_PORT
 
 CMD ["python", "server.py"]

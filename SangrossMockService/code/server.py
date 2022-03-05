@@ -3,12 +3,38 @@ import time, socket
 from spyne import Application, ServiceBase, Unicode, rpc
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
-
+from urllib.parse import urljoin
+from os import getenv
 
 class SangrossMockService(ServiceBase):
 
     @rpc(Unicode, _returns=Unicode)
-    def slow_request(ctx, request_id):
+    def GetCustomers(ctx, request_id):
+        time.sleep(1)
+        return u'Request: %s' % request_id
+
+    @rpc(Unicode, _returns=Unicode)
+    def GetStocks(ctx, request_id):
+        time.sleep(1)
+        return u'Request: %s' % request_id
+
+    @rpc(Unicode, _returns=Unicode)
+    def GetOP(ctx, request_id):
+        time.sleep(1)
+        return u'Request: %s' % request_id
+
+    @rpc(Unicode, _returns=Unicode)
+    def GetPrices(ctx, request_id):
+        time.sleep(1)
+        return u'Request: %s' % request_id
+
+    @rpc(Unicode, _returns=Unicode)
+    def GetTopProducts(ctx, request_id):
+        time.sleep(1)
+        return u'Request: %s' % request_id
+
+    @rpc(Unicode, _returns=Unicode)
+    def GetDeliveryNotes(ctx, request_id):
         time.sleep(1)
         return u'Request: %s' % request_id
 
@@ -17,7 +43,7 @@ hostname = socket.gethostname()
 
 application = Application(
     services=[SangrossMockService],
-    tns="http://{}:8000/".format(hostname),
+    tns='tns',
     in_protocol=Soap11(validator='lxml'),
     out_protocol=Soap11())
 
@@ -31,8 +57,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     logging.getLogger('spyne.protocol.xml').setLevel(logging.DEBUG)
 
-    logging.info("listening to http://0.0.0.0:8000")
-    logging.info("wsdl is at: http://{}:8000/?wsdl".format(hostname))
-
-    server = make_server('0.0.0.0', 8000, application)
-    server.serve_forever()
+    with make_server('', int(getenv('SERVER_PORT')), application) as httpd:
+        logging.info("wsdl is at: http://{}:{}{}?wsdl".format(hostname,
+            getenv('SERVER_PORT'), urljoin('/', getenv('SCRIPT_NAME'))))
+        httpd.serve_forever()
