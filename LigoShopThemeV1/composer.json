@@ -1,6 +1,6 @@
 {
   "name": "ligo/shop-theme-v1",
-  "description": "Ligo Shop Theme plugin version 1",
+  "description": "Ligo Shop Theme Plugin Version 1",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
@@ -18,8 +18,8 @@
   "extra": {
     "shopware-plugin-class": "LigoShopThemeV1\\LigoShopThemeV1",
     "label": {
-      "de-DE": "Ligo Shop Theme v1 plugin",
-      "en-GB": "Ligo Shop Theme v1 plugin"
+      "de-DE": "Ligo Shop Theme v1 Plugin",
+      "en-GB": "Ligo Shop Theme v1 Plugin"
     }
   }
 }

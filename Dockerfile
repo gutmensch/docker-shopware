@@ -1,4 +1,6 @@
-FROM shyim/shopware:6.4.8
+# 6.4.1+ causes
+# https://forum.shopware.com/t/malformed-utf-8-characters-bei-sync-api-nach-update-auf-6-4-1-0/88421/7
+FROM shyim/shopware:6.4.0
 
 COPY LigoShopThemeV1/ /var/www/html/custom/plugins/LigoShopThemeV1/
 COPY SangrossAdapter/ /var/www/html/custom/plugins/SangrossAdapter/
