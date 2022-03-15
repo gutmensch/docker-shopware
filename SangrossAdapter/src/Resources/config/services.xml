@@ -20,6 +20,27 @@
             <argument id="Shopware\Core\System\SystemConfig\SystemConfigService" type="service"/>
 	    <argument type="service" id="sangross_adapter.logger"/>
         </service>
+
+        <!-- import jobs sangross => shop //-->
+        <service id="SangrossAdapter\ScheduledTask\ImportCustomers">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="SangrossAdapter\ScheduledTask\ImportCustomersHandler">
+            <argument type="service" id="scheduled_task.repository" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+        <service id="SangrossAdapter\ScheduledTask\ImportProducts">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="SangrossAdapter\ScheduledTask\ImportProductsHandler">
+            <argument type="service" id="scheduled_task.repository" />
+            <tag name="messenger.message_handler" />
+        </service>
+
+
     </services>
 
 </container>
